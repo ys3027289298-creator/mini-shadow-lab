@@ -1,5 +1,5 @@
 #!/bin/bash
-for d in shadowmap cascade pcf; do
+for d in shadowmap cascade pcf sampling; do
   cd "/w/$d" || continue
   make clean >/dev/null 2>&1
   if make >/tmp/$d.log 2>&1; then
