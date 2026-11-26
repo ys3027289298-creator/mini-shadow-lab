@@ -1,0 +1,497 @@
+[
+  {
+    "name": "nm_cascade_000",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 0.5,
+      "rel": 1e-09
+    }
+  },
+  {
+    "name": "nm_cascade_001",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 0.0,
+      "rel": 1e-09
+    }
+  },
+  {
+    "name": "nm_cascade_002",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 1.0,
+      "rel": 1e-09
+    }
+  },
+  {
+    "name": "nm_cascade_003",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 1.0,
+      "rel": 1e-09
+    }
+  },
+  {
+    "name": "nm_cascade_004",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 0.5,
+      "rel": 1e-08
+    }
+  },
+  {
+    "name": "nm_cascade_005",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 0.0,
+      "rel": 1e-08
+    }
+  },
+  {
+    "name": "nm_cascade_006",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 1.0,
+      "rel": 1e-08
+    }
+  },
+  {
+    "name": "nm_cascade_007",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0,
+      "lam": 1.0,
+      "rel": 1e-08
+    }
+  },
+  {
+    "name": "nm_cascade_008",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000001192092896,
+      "lam": 0.5,
+      "rel": 1e-07
+    }
+  },
+  {
+    "name": "nm_cascade_009",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000001192092896,
+      "lam": 0.0,
+      "rel": 1e-07
+    }
+  },
+  {
+    "name": "nm_cascade_010",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000001192092896,
+      "lam": 1.0,
+      "rel": 1e-07
+    }
+  },
+  {
+    "name": "nm_cascade_011",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000001192092896,
+      "lam": 1.0,
+      "rel": 1e-07
+    }
+  },
+  {
+    "name": "nm_cascade_012",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000003576278687,
+      "lam": 0.5,
+      "rel": 3e-07
+    }
+  },
+  {
+    "name": "nm_cascade_013",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000003576278687,
+      "lam": 0.0,
+      "rel": 3e-07
+    }
+  },
+  {
+    "name": "nm_cascade_014",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000003576278687,
+      "lam": 1.0,
+      "rel": 3e-07
+    }
+  },
+  {
+    "name": "nm_cascade_015",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000003576278687,
+      "lam": 1.0,
+      "rel": 3e-07
+    }
+  },
+  {
+    "name": "nm_cascade_016",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000009536743164,
+      "lam": 0.5,
+      "rel": 1e-06
+    }
+  },
+  {
+    "name": "nm_cascade_017",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000009536743164,
+      "lam": 0.0,
+      "rel": 1e-06
+    }
+  },
+  {
+    "name": "nm_cascade_018",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000009536743164,
+      "lam": 1.0,
+      "rel": 1e-06
+    }
+  },
+  {
+    "name": "nm_cascade_019",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000009536743164,
+      "lam": 1.0,
+      "rel": 1e-06
+    }
+  },
+  {
+    "name": "nm_cascade_020",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000100135803223,
+      "lam": 0.5,
+      "rel": 1e-05
+    }
+  },
+  {
+    "name": "nm_cascade_021",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000100135803223,
+      "lam": 0.0,
+      "rel": 1e-05
+    }
+  },
+  {
+    "name": "nm_cascade_022",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.0000100135803223,
+      "lam": 1.0,
+      "rel": 1e-05
+    }
+  },
+  {
+    "name": "nm_cascade_023",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.0000100135803223,
+      "lam": 1.0,
+      "rel": 1e-05
+    }
+  },
+  {
+    "name": "nm_cascade_024",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.000100016593933,
+      "lam": 0.5,
+      "rel": 0.0001
+    }
+  },
+  {
+    "name": "nm_cascade_025",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.000100016593933,
+      "lam": 0.0,
+      "rel": 0.0001
+    }
+  },
+  {
+    "name": "nm_cascade_026",
+    "family": "cascade",
+    "params": {
+      "n": 4,
+      "near": 1.0,
+      "far": 1.000100016593933,
+      "lam": 1.0,
+      "rel": 0.0001
+    }
+  },
+  {
+    "name": "nm_cascade_027",
+    "family": "cascade",
+    "params": {
+      "n": 3,
+      "near": 1.0,
+      "far": 1.000100016593933,
+      "lam": 1.0,
+      "rel": 0.0001
+    }
+  },
+  {
+    "name": "nm_pcf_000",
+    "family": "pcf",
+    "params": {
+      "bd": 0.0,
+      "rd": 1e-30,
+      "w": 4,
+      "h": 4
+    }
+  },
+  {
+    "name": "nm_pcf_001",
+    "family": "pcf",
+    "params": {
+      "bd": 0.0,
+      "rd": 1e-20,
+      "w": 4,
+      "h": 4
+    }
+  },
+  {
+    "name": "nm_pcf_002",
+    "family": "pcf",
+    "params": {
+      "bd": 0.0,
+      "rd": 1e-12,
+      "w": 4,
+      "h": 4
+    }
+  },
+  {
+    "name": "nm_pcf_003",
+    "family": "pcf",
+    "params": {
+      "bd": 0.0,
+      "rd": 1e-08,
+      "w": 4,
+      "h": 4
+    }
+  },
+  {
+    "name": "nm_pcf_004",
+    "family": "pcf",
+    "params": {
+      "bd": 0.0,
+      "rd": 1e-06,
+      "w": 4,
+      "h": 4
+    }
+  },
+  {
+    "name": "nm_pcf_005",
+    "family": "pcf",
+    "params": {
+      "bd": 0.0,
+      "rd": 0.0001,
+      "w": 4,
+      "h": 4
+    }
+  },
+  {
+    "name": "nm_sm_000",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 1.0,
+      "clear": 1.0,
+      "d": 1e-30
+    }
+  },
+  {
+    "name": "nm_sm_001",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 1.0,
+      "clear": 1.0,
+      "d": 1e-20
+    }
+  },
+  {
+    "name": "nm_sm_002",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 1.0,
+      "clear": 1.0,
+      "d": 1e-12
+    }
+  },
+  {
+    "name": "nm_sm_003",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 1.0,
+      "clear": 1.0,
+      "d": 1e-08
+    }
+  },
+  {
+    "name": "nm_sm_004",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 1.0000009536743164,
+      "clear": 1.0,
+      "d": 1e-06
+    }
+  },
+  {
+    "name": "nm_sm_005",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 1.000100016593933,
+      "clear": 1.0,
+      "d": 0.0001
+    }
+  },
+  {
+    "name": "nm_smc_000",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 100.0,
+      "clear": 1e-08
+    }
+  },
+  {
+    "name": "nm_smc_001",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 100.0,
+      "clear": 1e-06
+    }
+  },
+  {
+    "name": "nm_smc_002",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 100.0,
+      "clear": 0.0001
+    }
+  },
+  {
+    "name": "nm_smc_003",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 100.0,
+      "clear": 0.001
+    }
+  },
+  {
+    "name": "nm_smc_004",
+    "family": "shadowmap",
+    "params": {
+      "l": -10.0,
+      "r": 10.0,
+      "n": 1.0,
+      "f": 100.0,
+      "clear": 0.01
+    }
+  }
+]

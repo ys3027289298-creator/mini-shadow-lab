@@ -1,0 +1,338 @@
+[
+  {
+    "name": "cv_000",
+    "fam": "A_cascade_gap",
+    "ctrl": 0.1,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_001",
+    "fam": "A_cascade_gap",
+    "ctrl": 0.01,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_002",
+    "fam": "A_cascade_gap",
+    "ctrl": 0.001,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_003",
+    "fam": "A_cascade_gap",
+    "ctrl": 0.0001,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_004",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-05,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_005",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-06,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_006",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-07,
+    "black": false,
+    "out": null
+  },
+  {
+    "name": "cv_007",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-08,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_008",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-09,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_009",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-10,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_010",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-11,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_011",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-12,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_012",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-13,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_013",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-14,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_014",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-15,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_015",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-16,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_016",
+    "fam": "A_cascade_gap",
+    "ctrl": 1e-17,
+    "black": false,
+    "out": "black=0"
+  },
+  {
+    "name": "cv_017",
+    "fam": "B_frustum",
+    "ctrl": 0.1,
+    "black": false,
+    "out": "black=0 z10=-10"
+  },
+  {
+    "name": "cv_018",
+    "fam": "B_frustum",
+    "ctrl": 0.01,
+    "black": false,
+    "out": "black=0 z10=-100"
+  },
+  {
+    "name": "cv_019",
+    "fam": "B_frustum",
+    "ctrl": 0.001,
+    "black": false,
+    "out": "black=0 z10=-999.953"
+  },
+  {
+    "name": "cv_020",
+    "fam": "B_frustum",
+    "ctrl": 0.0001,
+    "black": false,
+    "out": "black=0 z10=-9998.34"
+  },
+  {
+    "name": "cv_021",
+    "fam": "B_frustum",
+    "ctrl": 1e-05,
+    "black": false,
+    "out": "black=0 z10=-99864.4"
+  },
+  {
+    "name": "cv_022",
+    "fam": "B_frustum",
+    "ctrl": 1e-06,
+    "black": false,
+    "out": "black=0 z10=-1.04858e+06"
+  },
+  {
+    "name": "cv_023",
+    "fam": "B_frustum",
+    "ctrl": 1e-07,
+    "black": false,
+    "out": "black=0 z10=-8.38861e+06"
+  },
+  {
+    "name": "cv_024",
+    "fam": "B_frustum",
+    "ctrl": 1e-08,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_025",
+    "fam": "B_frustum",
+    "ctrl": 1e-09,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_026",
+    "fam": "B_frustum",
+    "ctrl": 1e-10,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_027",
+    "fam": "B_frustum",
+    "ctrl": 1e-11,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_028",
+    "fam": "B_frustum",
+    "ctrl": 1e-12,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_029",
+    "fam": "B_frustum",
+    "ctrl": 1e-13,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_030",
+    "fam": "B_frustum",
+    "ctrl": 1e-14,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_031",
+    "fam": "B_frustum",
+    "ctrl": 1e-15,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_032",
+    "fam": "B_frustum",
+    "ctrl": 1e-16,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_033",
+    "fam": "B_frustum",
+    "ctrl": 1e-17,
+    "black": true,
+    "out": "black=1 z10=-inf"
+  },
+  {
+    "name": "cv_034",
+    "fam": "C_clear_lit",
+    "ctrl": 0.1,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_035",
+    "fam": "C_clear_black",
+    "ctrl": 0.1,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  },
+  {
+    "name": "cv_036",
+    "fam": "C_clear_lit",
+    "ctrl": 0.01,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_037",
+    "fam": "C_clear_black",
+    "ctrl": 0.01,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  },
+  {
+    "name": "cv_038",
+    "fam": "C_clear_lit",
+    "ctrl": 0.001,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_039",
+    "fam": "C_clear_black",
+    "ctrl": 0.001,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  },
+  {
+    "name": "cv_040",
+    "fam": "C_clear_lit",
+    "ctrl": 0.0001,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_041",
+    "fam": "C_clear_black",
+    "ctrl": 0.0001,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  },
+  {
+    "name": "cv_042",
+    "fam": "C_clear_lit",
+    "ctrl": 1e-05,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_043",
+    "fam": "C_clear_black",
+    "ctrl": 1e-05,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  },
+  {
+    "name": "cv_044",
+    "fam": "C_clear_lit",
+    "ctrl": 1e-06,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_045",
+    "fam": "C_clear_black",
+    "ctrl": 1e-06,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  },
+  {
+    "name": "cv_046",
+    "fam": "C_clear_lit",
+    "ctrl": 1e-07,
+    "black": false,
+    "out": "black=0 shadowed=0"
+  },
+  {
+    "name": "cv_047",
+    "fam": "C_clear_black",
+    "ctrl": 1e-07,
+    "black": true,
+    "out": "black=1 shadowed=1000"
+  }
+]

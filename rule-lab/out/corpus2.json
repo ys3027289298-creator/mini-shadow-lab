@@ -1,0 +1,2372 @@
+[
+  {
+    "name": "cascade_000",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 2,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_001",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 0,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_002",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 5,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_003",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 1,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_004",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 0,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_005",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 4,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_006",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 0,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_007",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 3,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_008",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 2,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_009",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 5,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_010",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 2,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_011",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 3,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_012",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 1,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_013",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 3,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_014",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 1,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_015",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 5,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_016",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 4,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_017",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 5,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_018",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 0,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_019",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 3,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_020",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 0,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_021",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 3,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_022",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 3,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_023",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 2,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_024",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 2,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_025",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 0,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_026",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 2,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_027",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 4,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_028",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 3,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_029",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 1,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_030",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 1,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_031",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 4,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_032",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 1,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_033",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 2,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_034",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 5,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_035",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 5,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_036",
+    "family": "cascade",
+    "params": {
+      "near": 0.5,
+      "far": 1000,
+      "n": 2,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 3.3010299956639813,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_037",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 3,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_038",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 2,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_039",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 5,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_040",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 4,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_041",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 2,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_042",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 4,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_043",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 2,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_044",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 0,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_045",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 1,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_046",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 4,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_047",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 0,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_048",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 3,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_049",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 2,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_050",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 0,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_051",
+    "family": "cascade",
+    "params": {
+      "near": 0.001,
+      "far": 1000000.0,
+      "n": 1,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 9.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_052",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 4,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_053",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 0,
+      "lam": 0.5,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_054",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 5,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_055",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 3,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": false
+  },
+  {
+    "name": "cascade_056",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 1,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_057",
+    "family": "cascade",
+    "params": {
+      "near": 1e-06,
+      "far": 1000000000.0,
+      "n": 1,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 15.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_058",
+    "family": "cascade",
+    "params": {
+      "near": 0.1,
+      "far": 1000.0,
+      "n": 0,
+      "lam": 0.0,
+      "res": 1024
+    },
+    "truth_black": false,
+    "severity": 4.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "cascade_059",
+    "family": "cascade",
+    "params": {
+      "near": 0.0001,
+      "far": 10000000.0,
+      "n": 0,
+      "lam": 1.0,
+      "res": 1024
+    },
+    "truth_black": true,
+    "severity": 11.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": true,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_060",
+    "family": "pcf",
+    "params": {
+      "w": 4,
+      "h": 4,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_061",
+    "family": "pcf",
+    "params": {
+      "w": 4,
+      "h": 4,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_062",
+    "family": "pcf",
+    "params": {
+      "w": 4,
+      "h": 4,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_063",
+    "family": "pcf",
+    "params": {
+      "w": 4,
+      "h": 4,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_064",
+    "family": "pcf",
+    "params": {
+      "w": 4,
+      "h": 4,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_065",
+    "family": "pcf",
+    "params": {
+      "w": 4,
+      "h": 4,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_066",
+    "family": "pcf",
+    "params": {
+      "w": 8,
+      "h": 8,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_067",
+    "family": "pcf",
+    "params": {
+      "w": 8,
+      "h": 8,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_068",
+    "family": "pcf",
+    "params": {
+      "w": 8,
+      "h": 8,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_069",
+    "family": "pcf",
+    "params": {
+      "w": 8,
+      "h": 8,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_070",
+    "family": "pcf",
+    "params": {
+      "w": 8,
+      "h": 8,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_071",
+    "family": "pcf",
+    "params": {
+      "w": 8,
+      "h": 8,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_072",
+    "family": "pcf",
+    "params": {
+      "w": 9,
+      "h": 9,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_073",
+    "family": "pcf",
+    "params": {
+      "w": 9,
+      "h": 9,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_074",
+    "family": "pcf",
+    "params": {
+      "w": 9,
+      "h": 9,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_075",
+    "family": "pcf",
+    "params": {
+      "w": 9,
+      "h": 9,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_076",
+    "family": "pcf",
+    "params": {
+      "w": 9,
+      "h": 9,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_077",
+    "family": "pcf",
+    "params": {
+      "w": 9,
+      "h": 9,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_078",
+    "family": "pcf",
+    "params": {
+      "w": 10,
+      "h": 10,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 0.2222222222222222,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_079",
+    "family": "pcf",
+    "params": {
+      "w": 10,
+      "h": 10,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_080",
+    "family": "pcf",
+    "params": {
+      "w": 10,
+      "h": 10,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.2222222222222222,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_081",
+    "family": "pcf",
+    "params": {
+      "w": 10,
+      "h": 10,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 0.2222222222222222,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_082",
+    "family": "pcf",
+    "params": {
+      "w": 10,
+      "h": 10,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.2222222222222222,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_083",
+    "family": "pcf",
+    "params": {
+      "w": 10,
+      "h": 10,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 1.0,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_084",
+    "family": "pcf",
+    "params": {
+      "w": 12,
+      "h": 12,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 0.6666666666666666,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_085",
+    "family": "pcf",
+    "params": {
+      "w": 12,
+      "h": 12,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_086",
+    "family": "pcf",
+    "params": {
+      "w": 12,
+      "h": 12,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.6666666666666666,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_087",
+    "family": "pcf",
+    "params": {
+      "w": 12,
+      "h": 12,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 0.6666666666666666,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_088",
+    "family": "pcf",
+    "params": {
+      "w": 12,
+      "h": 12,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 0.6666666666666666,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_089",
+    "family": "pcf",
+    "params": {
+      "w": 12,
+      "h": 12,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 1.0,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_090",
+    "family": "pcf",
+    "params": {
+      "w": 16,
+      "h": 16,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 1.5555555555555556,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_091",
+    "family": "pcf",
+    "params": {
+      "w": 16,
+      "h": 16,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 1.5555555555555556,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_092",
+    "family": "pcf",
+    "params": {
+      "w": 16,
+      "h": 16,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 1.5555555555555556,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_093",
+    "family": "pcf",
+    "params": {
+      "w": 16,
+      "h": 16,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 1.5555555555555556,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_094",
+    "family": "pcf",
+    "params": {
+      "w": 16,
+      "h": 16,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 1.5555555555555556,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_095",
+    "family": "pcf",
+    "params": {
+      "w": 16,
+      "h": 16,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 1.5555555555555556,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_096",
+    "family": "pcf",
+    "params": {
+      "w": 32,
+      "h": 32,
+      "bd": 5,
+      "rd": 5
+    },
+    "truth_black": false,
+    "severity": 5.111111111111111,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_097",
+    "family": "pcf",
+    "params": {
+      "w": 32,
+      "h": 32,
+      "bd": 0,
+      "rd": 0
+    },
+    "truth_black": true,
+    "severity": 5.111111111111111,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_098",
+    "family": "pcf",
+    "params": {
+      "w": 32,
+      "h": 32,
+      "bd": 1,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 5.111111111111111,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_099",
+    "family": "pcf",
+    "params": {
+      "w": 32,
+      "h": 32,
+      "bd": 0.0,
+      "rd": 10.0
+    },
+    "truth_black": false,
+    "severity": 5.111111111111111,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_100",
+    "family": "pcf",
+    "params": {
+      "w": 32,
+      "h": 32,
+      "bd": 9,
+      "rd": 10
+    },
+    "truth_black": false,
+    "severity": 5.111111111111111,
+    "capacity_bug": true,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "pcf_101",
+    "family": "pcf",
+    "params": {
+      "w": 32,
+      "h": 32,
+      "bd": 0,
+      "rd": 0.0001
+    },
+    "truth_black": false,
+    "severity": 5.111111111111111,
+    "capacity_bug": true,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_102",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 1,
+      "f": 100,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_103",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 1,
+      "f": 100,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_104",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 5,
+      "f": 5,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_105",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 5,
+      "f": 5,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_106",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 1,
+      "f": 1,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_107",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 1,
+      "f": 1,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_108",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_109",
+    "family": "shadowmap",
+    "params": {
+      "l": -10,
+      "r": 10,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_110",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 1,
+      "f": 100,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_111",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 1,
+      "f": 100,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_112",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 5,
+      "f": 5,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_113",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 5,
+      "f": 5,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_114",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 1,
+      "f": 1,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_115",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 1,
+      "f": 1,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_116",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_117",
+    "family": "shadowmap",
+    "params": {
+      "l": 0,
+      "r": 0,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_118",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 1,
+      "f": 100,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_119",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 1,
+      "f": 100,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_120",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 5,
+      "f": 5,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_121",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 5,
+      "f": 5,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_122",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 1,
+      "f": 1,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_123",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 1,
+      "f": 1,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_124",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_125",
+    "family": "shadowmap",
+    "params": {
+      "l": 5,
+      "r": 5,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_126",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 1,
+      "f": 100,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_127",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 1,
+      "f": 100,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_128",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 5,
+      "f": 5,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_129",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 5,
+      "f": 5,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_130",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 1,
+      "f": 1,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_131",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 1,
+      "f": 1,
+      "clear": 1.0
+    },
+    "truth_black": true,
+    "severity": 2.0,
+    "capacity_bug": false,
+    "div_bug": true,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_132",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 0.0
+    },
+    "truth_black": true,
+    "severity": 1.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  },
+  {
+    "name": "shadowmap_133",
+    "family": "shadowmap",
+    "params": {
+      "l": -1,
+      "r": 1,
+      "n": 0.1,
+      "f": 1000,
+      "clear": 1.0
+    },
+    "truth_black": false,
+    "severity": 0.0,
+    "capacity_bug": false,
+    "div_bug": false,
+    "init_bug": false,
+    "sentinel_bug": false,
+    "ran": true
+  }
+]

@@ -1,0 +1,210 @@
+[
+  {
+    "name": "cascade_B1",
+    "class": "BH",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": true,
+    "static_fired": true,
+    "static_log": "/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/cascade_B1.c: In function \u2018texel_world\u2019:\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/cascade_B1.c:21:28: warning: use of uninitialized value \u2018*c.n\u2019 [CWE-457] [-Wanalyzer-use-of-uninitialized-value]\n   21 |     if (idx < 0 || idx >= c->n || res <= 0.0f) return -1.0f;\n      |                           ~^~~\n  \u2018main\u2019: events 1-3\n    |\n    |   2",
+    "review_fired": true,
+    "review_flags": [
+      "split_log_ratio",
+      "cascade_struct_uninit_on_fail"
+    ],
+    "assert_fired": false,
+    "assert_out": "tuple=-1.000000\n",
+    "output": "tuple=0.000000\n"
+  },
+  {
+    "name": "cascade_B2",
+    "class": "BH",
+    "build_ok": false,
+    "ran": false,
+    "truth_black": false,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": true,
+    "review_flags": [
+      "split_log_ratio",
+      "cascade_struct_uninit_on_fail"
+    ],
+    "assert_fired": false,
+    "assert_out": "span0=5.49161414e-05 span1=0.0308267027 diff=0.0307717863 finite=1\n",
+    "output": ""
+  },
+  {
+    "name": "cascade_B8",
+    "class": "BH",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": true,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": true,
+    "review_flags": [
+      "split_log_ratio",
+      "cascade_struct_uninit_on_fail",
+      "sentinel_used_as_size"
+    ],
+    "assert_fired": false,
+    "assert_out": "texel=-1.000000 penum=-2.000000\n",
+    "output": "texel=-1.000000 penum=-2.000000\n"
+  },
+  {
+    "name": "cascade_C1",
+    "class": "CLEAN",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": false,
+    "static_fired": true,
+    "static_log": "/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/cascade_C1.c: In function \u2018build\u2019:\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/cascade_C1.c:8:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]\n    8 |   if(n<=0||n>MAXC) return -1; if(near_d<=0.0f||far_d<=near_d) return -1;\n      |   ^~\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/cascade_C1.c:8:31: note: ...t",
+    "review_fired": true,
+    "review_flags": [
+      "split_log_ratio"
+    ],
+    "assert_fired": false,
+    "assert_out": "n_after_fail=0\n",
+    "output": "n_after_fail=0\n"
+  },
+  {
+    "name": "cascade_CLEAN",
+    "class": "CLEAN",
+    "build_ok": false,
+    "ran": false,
+    "truth_black": false,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": true,
+    "review_flags": [
+      "split_log_ratio",
+      "cascade_struct_uninit_on_fail"
+    ],
+    "assert_fired": false,
+    "assert_out": "build_ok=1\nsplits_increasing=1\nlast_is_far=1\nfirst_above_near=1\nlambda1_smaller_first=1\nuniform_equal=1\ntexel_grows=1\nbad_n=1\nbad_range=1\nbad_lambda=1\nbad_texel_idx=1\nall_ok=1\n",
+    "output": ""
+  },
+  {
+    "name": "pcf_B3",
+    "class": "BH",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": false,
+    "static_fired": true,
+    "static_log": "/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_B3.c: In function \u2018pcf\u2019:\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_B3.c:14:13: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]\n   14 |             if (sx < 0) sx = 0; if (sy < 0) sy = 0;\n      |             ^~\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_B3.c:14:33: note: ...this statement, but the",
+    "review_fired": true,
+    "review_flags": [
+      "depthmap_capacity_unchecked",
+      "cascade_struct_uninit_on_fail"
+    ],
+    "assert_fired": true,
+    "assert_out": "/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_B3.c:17:28: runtime error: index 91 out of bounds for type 'float [81]'\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_B3.c:17:19: runtime error: load of address 0x74c9a6c0019c with insufficient space for an object of type 'const float'\n",
+    "output": "v=0\n"
+  },
+  {
+    "name": "pcf_B4",
+    "class": "BH",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": true,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": true,
+    "review_flags": [
+      "penumbra_div_receiver",
+      "depthmap_capacity_unchecked"
+    ],
+    "assert_fired": false,
+    "assert_out": "penum=-nan finite=0\n",
+    "output": "penum=-nan finite=0\n"
+  },
+  {
+    "name": "pcf_O1",
+    "class": "OTHER",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": false,
+    "static_fired": true,
+    "static_log": "/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_O1.c: In function \u2018pcf\u2019:\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_O1.c:7:3: warning: this \u2018if\u2019 clause does not guard... [-Wmisleading-indentation]\n    7 |   if(m->w<=0||m->h<=0) return -1; if(radius<0||radius>4) return -1;\n      |   ^~\n/home/ys/feedback/uidreczz28eG8jBcoZb/rule-lab/src/pcf_O1.c:7:35: note: ...this statement, but ",
+    "review_fired": true,
+    "review_flags": [
+      "depthmap_capacity_unchecked",
+      "cascade_struct_uninit_on_fail"
+    ],
+    "assert_fired": false,
+    "assert_out": "v=255\n",
+    "output": "v=255\n"
+  },
+  {
+    "name": "shadowmap_B5",
+    "class": "BH",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": true,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": true,
+    "review_flags": [
+      "ortho_div_f_minus_n"
+    ],
+    "assert_fired": false,
+    "assert_out": "ndc_z=-nan finite=0\n",
+    "output": "ndc_z=-nan finite=0\n"
+  },
+  {
+    "name": "shadowmap_B6",
+    "class": "BH",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": true,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": false,
+    "review_flags": [],
+    "assert_fired": false,
+    "assert_out": "shadowed=1000/1000\n",
+    "output": "shadowed=1000/1000\n"
+  },
+  {
+    "name": "shadowmap_C4",
+    "class": "CLEAN",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": false,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": false,
+    "review_flags": [],
+    "assert_fired": false,
+    "assert_out": "v=1\n",
+    "output": "v=1\n"
+  },
+  {
+    "name": "shadowmap_O3",
+    "class": "OTHER",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": false,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": false,
+    "review_flags": [],
+    "assert_fired": false,
+    "assert_out": "bias_grazing=100.001\n",
+    "output": "bias_grazing=100.001\n"
+  },
+  {
+    "name": "shadowmap_O4",
+    "class": "OTHER",
+    "build_ok": true,
+    "ran": true,
+    "truth_black": false,
+    "static_fired": false,
+    "static_log": "",
+    "review_fired": false,
+    "review_flags": [],
+    "assert_fired": false,
+    "assert_out": "shadow_of_nan=0\n",
+    "output": "shadow_of_nan=0\n"
+  }
+]

@@ -1,0 +1,4 @@
+id,date,class,trigger
+INC-001,2026-09-14,clear,streamed depth tile left unwritten; cleared to 0; slab fully black
+INC-002,2026-10-02,div,receiver coplanar with light plane; penumbra divided by 0
+...,,capacity|div|uninit|clear|other,...
