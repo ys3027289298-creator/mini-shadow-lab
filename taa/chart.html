@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TAA 时域累积：拖尾–闪烁权重权衡</title>
+<style>
+.viz-root {
+  color-scheme: light;
+  --surface-1: #fcfcfb; --surface-2: #f2f1ee;
+  --text-primary: #0b0b0b; --text-secondary: #52514e; --text-muted: #8a8881;
+  --grid: #e4e2dc; --axis: #c9c6bd;
+  --series-1: #2a78d6; --series-2: #eb6834; --series-3: #1baf7a; --limit: #c4443f;
+  --pick: #6250d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19; --surface-2: #232322;
+    --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #8f8d85;
+    --grid: #2e2e2c; --axis: #45443f;
+    --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --limit: #e06a66;
+    --pick: #9085e9;
+  }
+}
+:root[data-theme="dark"] .viz-root {
+  color-scheme: dark;
+  --surface-1: #1a1a19; --surface-2: #232322;
+  --text-primary: #f0efec; --text-secondary: #c3c2b7; --text-muted: #8f8d85;
+  --grid: #2e2e2c; --axis: #45443f;
+  --series-1: #3987e5; --series-2: #d95926; --series-3: #199e70; --limit: #e06a66;
+  --pick: #9085e9;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--surface-2); color: var(--text-primary);
+       font: 14px/1.5 -apple-system, "Segoe UI", "Noto Sans CJK SC", sans-serif; }
+.viz-root { background: var(--surface-1); max-width: 1180px; margin: 24px auto;
+            padding: 28px 32px 36px; border-radius: 12px; }
+h1 { font-size: 20px; margin: 0 0 4px; }
+.sub { color: var(--text-secondary); margin: 0 0 18px; font-size: 13px; }
+.legend { display: flex; flex-wrap: wrap; gap: 18px; margin: 10px 0 6px;
+          color: var(--text-secondary); font-size: 13px; }
+.legend span { display: inline-flex; align-items: center; gap: 7px; }
+.sw { width: 22px; height: 0; border-top: 2px solid var(--series-1); }
+.sw.dash { border-top: 2px dashed var(--series-2); }
+.sw.aqua { border-top: 2px solid var(--series-3); }
+.sw.limit { border-top: 2px dashed var(--limit); }
+.sw.pick { border-top: 2px solid var(--pick); }
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.panel { background: var(--surface-1); border: 1px solid var(--grid);
+         border-radius: 10px; padding: 10px 10px 6px; position: relative; }
+.panel h3 { margin: 2px 4px 6px; font-size: 13px; font-weight: 600;
+            color: var(--text-primary); display: flex; justify-content: space-between; }
+.badge { font-size: 11px; font-weight: 600; padding: 1px 8px; border-radius: 999px; }
+.badge.ok { color: var(--series-3); border: 1px solid var(--series-3); }
+.badge.bad { color: var(--limit); border: 1px solid var(--limit); }
+svg { width: 100%; height: 210px; display: block; }
+.axis-label { fill: var(--text-muted); font-size: 11px; }
+.gridline { stroke: var(--grid); stroke-width: 1; }
+.axisline { stroke: var(--axis); stroke-width: 1; }
+.series { fill: none; stroke-width: 2; }
+.s1 { stroke: var(--series-1); } .s2 { stroke: var(--series-2); stroke-dasharray: 5 4; }
+.s3 { stroke: var(--series-3); }
+.limitline { stroke: var(--limit); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.pickline { stroke: var(--pick); stroke-width: 1.5; }
+.dot { stroke: var(--surface-1); stroke-width: 2; }
+.tip { position: fixed; pointer-events: none; background: var(--surface-2);
+       border: 1px solid var(--axis); border-radius: 8px; padding: 8px 10px;
+       font-size: 12px; color: var(--text-primary); display: none; z-index: 10;
+       min-width: 130px; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+.tip b { display: block; margin-bottom: 3px; }
+.tip i { font-style: normal; color: var(--text-muted); }
+table { border-collapse: collapse; width: 100%; margin-top: 22px; font-size: 13px; }
+th, td { text-align: right; padding: 7px 10px; border-bottom: 1px solid var(--grid); }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--text-secondary); font-weight: 600; }
+td.note { color: var(--limit); font-weight: 600; }
+h2 { font-size: 15px; margin: 26px 0 8px; }
+.eq { background: var(--surface-2); border-radius: 8px; padding: 12px 16px;
+      font-size: 13px; color: var(--text-secondary); overflow-x: auto; }
+.eq b { color: var(--text-primary); }
+button.theme { float: right; border: 1px solid var(--axis); background: var(--surface-2);
+       color: var(--text-secondary); border-radius: 8px; padding: 5px 12px;
+       font-size: 12px; cursor: pointer; }
+@media (max-width: 900px) { .grid3 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="viz-root" id="root">
+  <button class="theme" id="themeBtn" type="button">切换主题</button>
+  <h1>TAA 时域累积：历史权重 β 的拖尾–闪烁权衡</h1>
+  <p class="sub">一维扫描线模拟（影子长 40px，PCF k=3，亚像素抖动 ±0.15px）；上排：拖尾长度，下排：300 帧内边缘闪烁事件数；三列对应三档移动速度。</p>
+  <div class="legend">
+    <span><i class="sw"></i>实测拖尾（px）</span>
+    <span><i class="sw dash"></i>解析预测 v·N_eff(β)</span>
+    <span><i class="sw aqua"></i>闪烁事件数</span>
+    <span><i class="sw limit"></i>拖尾预算 4px</span>
+    <span><i class="sw pick"></i>β*（预算内最大权重）</span>
+  </div>
+  <div class="grid3" id="panels"></div>
+
+  <h2>定权策略与运动自适应策略实测值</h2>
+  <table id="tbl">
+    <thead><tr><th>速度 (px/帧)</th><th>策略</th><th>β（运动中）</th>
+      <th>β 上限（解析）</th><th>拖尾实测 (px)</th><th>预算 (px)</th>
+      <th>闪烁事件</th><th>结论</th></tr></thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>推导链</h2>
+  <div class="eq">
+    <b>① 混合权重表达式（EMA 时域累积）：</b><br>
+    C_t = β·H_{t−1} + (1−β)·I_t，&nbsp; H_t = C_t，&nbsp; β∈[0,1) 为历史帧权重，(1−β) 为当前帧权重<br><br>
+    <b>② 拖尾长度：</b>边缘以 v px/帧移动后，n 帧前的旧结果在当前像素残留 βⁿ；定义残留阈值 ε=0.10，
+    等效帧数 N_eff = ln ε / ln β，拖尾像素长度 <b>L_trail = v·N_eff</b><br><br>
+    <b>③ 权重上限（L_trail ≤ L_shadow/10 = 4px 反解）：</b><br>
+    β_max = ε^(v/L_budget) = exp(ln ε · v / L_budget)，&nbsp;
+    v=0.25→0.866，v=2→0.316，v=6→0.032<br><br>
+    <b>④ 冲突处理：</b>定权 β* 满足拖尾预算但中/高速下闪烁不为零（让步给拖尾）；
+    运动自适应 β=min(β_max,0.98) 运动中限权、静止恢复 0.98，两项同时达标。
+  </div>
+</div>
+<div class="tip" id="tip"></div>
+<script>
+const ROWS = [{"speed": 0.25, "beta": 0.0, "trail": 0.0, "pred": 0.0, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.02, "trail": 0.0, "pred": 0.147, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.04, "trail": 0.0, "pred": 0.179, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.06, "trail": 0.0, "pred": 0.205, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.08, "trail": 0.0, "pred": 0.228, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.1, "trail": 0.0, "pred": 0.25, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.12, "trail": 0.0, "pred": 0.271, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.14, "trail": 0.0, "pred": 0.293, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.16, "trail": 0.0, "pred": 0.314, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.18, "trail": 0.0, "pred": 0.336, "flicker": 163, "mode": "fixed"}, {"speed": 0.25, "beta": 0.2, "trail": 0.0, "pred": 0.358, "flicker": 203, "mode": "fixed"}, {"speed": 0.25, "beta": 0.22, "trail": 0.0, "pred": 0.38, "flicker": 203, "mode": "fixed"}, {"speed": 0.25, "beta": 0.24, "trail": 0.0, "pred": 0.403, "flicker": 203, "mode": "fixed"}, {"speed": 0.25, "beta": 0.26, "trail": 0.0, "pred": 0.427, "flicker": 222, "mode": "fixed"}, {"speed": 0.25, "beta": 0.28, "trail": 0.0, "pred": 0.452, "flicker": 222, "mode": "fixed"}, {"speed": 0.25, "beta": 0.3, "trail": 0.256, "pred": 0.478, "flicker": 231, "mode": "fixed"}, {"speed": 0.25, "beta": 0.32, "trail": 0.256, "pred": 0.505, "flicker": 238, "mode": "fixed"}, {"speed": 0.25, "beta": 0.34, "trail": 0.256, "pred": 0.534, "flicker": 244, "mode": "fixed"}, {"speed": 0.25, "beta": 0.36, "trail": 0.256, "pred": 0.563, "flicker": 243, "mode": "fixed"}, {"speed": 0.25, "beta": 0.38, "trail": 0.256, "pred": 0.595, "flicker": 238, "mode": "fixed"}, {"speed": 0.25, "beta": 0.4, "trail": 0.256, "pred": 0.628, "flicker": 231, "mode": "fixed"}, {"speed": 0.25, "beta": 0.42, "trail": 0.256, "pred": 0.664, "flicker": 231, "mode": "fixed"}, {"speed": 0.25, "beta": 0.44, "trail": 0.256, "pred": 0.701, "flicker": 231, "mode": "fixed"}, {"speed": 0.25, "beta": 0.46, "trail": 0.256, "pred": 0.741, "flicker": 229, "mode": "fixed"}, {"speed": 0.25, "beta": 0.48, "trail": 0.256, "pred": 0.784, "flicker": 227, "mode": "fixed"}, {"speed": 0.25, "beta": 0.5, "trail": 0.256, "pred": 0.83, "flicker": 225, "mode": "fixed"}, {"speed": 0.25, "beta": 0.52, "trail": 0.3, "pred": 0.88, "flicker": 224, "mode": "fixed"}, {"speed": 0.25, "beta": 0.54, "trail": 0.5, "pred": 0.934, "flicker": 221, "mode": "fixed"}, {"speed": 0.25, "beta": 0.56, "trail": 0.5, "pred": 0.993, "flicker": 219, "mode": "fixed"}, {"speed": 0.25, "beta": 0.58, "trail": 0.5, "pred": 1.057, "flicker": 219, "mode": "fixed"}, {"speed": 0.25, "beta": 0.6, "trail": 0.5, "pred": 1.127, "flicker": 218, "mode": "fixed"}, {"speed": 0.25, "beta": 0.62, "trail": 0.544, "pred": 1.204, "flicker": 217, "mode": "fixed"}, {"speed": 0.25, "beta": 0.64, "trail": 0.7, "pred": 1.29, "flicker": 211, "mode": "fixed"}, {"speed": 0.25, "beta": 0.66, "trail": 0.756, "pred": 1.385, "flicker": 193, "mode": "fixed"}, {"speed": 0.25, "beta": 0.68, "trail": 0.756, "pred": 1.493, "flicker": 178, "mode": "fixed"}, {"speed": 0.25, "beta": 0.7, "trail": 0.956, "pred": 1.614, "flicker": 158, "mode": "fixed"}, {"speed": 0.25, "beta": 0.72, "trail": 1.011, "pred": 1.752, "flicker": 132, "mode": "fixed"}, {"speed": 0.25, "beta": 0.74, "trail": 1.211, "pred": 1.912, "flicker": 115, "mode": "fixed"}, {"speed": 0.25, "beta": 0.76, "trail": 1.3, "pred": 2.098, "flicker": 94, "mode": "fixed"}, {"speed": 0.25, "beta": 0.78, "trail": 1.5, "pred": 2.317, "flicker": 50, "mode": "fixed"}, {"speed": 0.25, "beta": 0.8, "trail": 1.744, "pred": 2.58, "flicker": 13, "mode": "fixed"}, {"speed": 0.25, "beta": 0.82, "trail": 2.044, "pred": 2.901, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.84, "trail": 2.411, "pred": 3.302, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.86, "trail": 2.911, "pred": 3.817, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.88, "trail": 3.544, "pred": 4.503, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.9, "trail": 4.489, "pred": 5.464, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.92, "trail": 5.9, "pred": 6.904, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.94, "trail": 8.144, "pred": 9.303, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.96, "trail": 12.056, "pred": 14.101, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.98, "trail": 17.789, "pred": 28.493, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.0, "trail": 0.0, "pred": 0.0, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.02, "trail": 0.0, "pred": 1.177, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.04, "trail": 0.0, "pred": 1.431, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.06, "trail": 0.0, "pred": 1.637, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.08, "trail": 0.0, "pred": 1.823, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.1, "trail": 0.0, "pred": 2.0, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.12, "trail": 0.278, "pred": 2.172, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.14, "trail": 0.278, "pred": 2.342, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.16, "trail": 1.0, "pred": 2.513, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.18, "trail": 1.0, "pred": 2.686, "flicker": 163, "mode": "fixed"}, {"speed": 2.0, "beta": 0.2, "trail": 1.0, "pred": 2.861, "flicker": 203, "mode": "fixed"}, {"speed": 2.0, "beta": 0.22, "trail": 1.722, "pred": 3.041, "flicker": 203, "mode": "fixed"}, {"speed": 2.0, "beta": 0.24, "trail": 2.0, "pred": 3.227, "flicker": 203, "mode": "fixed"}, {"speed": 2.0, "beta": 0.26, "trail": 2.0, "pred": 3.419, "flicker": 222, "mode": "fixed"}, {"speed": 2.0, "beta": 0.28, "trail": 2.0, "pred": 3.618, "flicker": 222, "mode": "fixed"}, {"speed": 2.0, "beta": 0.3, "trail": 2.0, "pred": 3.825, "flicker": 231, "mode": "fixed"}, {"speed": 2.0, "beta": 0.32, "trail": 2.289, "pred": 4.042, "flicker": 238, "mode": "fixed"}, {"speed": 2.0, "beta": 0.34, "trail": 2.289, "pred": 4.269, "flicker": 244, "mode": "fixed"}, {"speed": 2.0, "beta": 0.36, "trail": 3.011, "pred": 4.508, "flicker": 243, "mode": "fixed"}, {"speed": 2.0, "beta": 0.38, "trail": 3.011, "pred": 4.759, "flicker": 238, "mode": "fixed"}, {"speed": 2.0, "beta": 0.4, "trail": 3.011, "pred": 5.026, "flicker": 231, "mode": "fixed"}, {"speed": 2.0, "beta": 0.42, "trail": 3.733, "pred": 5.309, "flicker": 231, "mode": "fixed"}, {"speed": 2.0, "beta": 0.44, "trail": 4.011, "pred": 5.609, "flicker": 231, "mode": "fixed"}, {"speed": 2.0, "beta": 0.46, "trail": 4.011, "pred": 5.93, "flicker": 229, "mode": "fixed"}, {"speed": 2.0, "beta": 0.48, "trail": 4.289, "pred": 6.274, "flicker": 227, "mode": "fixed"}, {"speed": 2.0, "beta": 0.5, "trail": 5.011, "pred": 6.644, "flicker": 225, "mode": "fixed"}, {"speed": 2.0, "beta": 0.52, "trail": 5.011, "pred": 7.042, "flicker": 224, "mode": "fixed"}, {"speed": 2.0, "beta": 0.54, "trail": 5.722, "pred": 7.474, "flicker": 221, "mode": "fixed"}, {"speed": 2.0, "beta": 0.56, "trail": 6.011, "pred": 7.942, "flicker": 219, "mode": "fixed"}, {"speed": 2.0, "beta": 0.58, "trail": 6.289, "pred": 8.454, "flicker": 219, "mode": "fixed"}, {"speed": 2.0, "beta": 0.6, "trail": 7.0, "pred": 9.015, "flicker": 218, "mode": "fixed"}, {"speed": 2.0, "beta": 0.62, "trail": 7.711, "pred": 9.634, "flicker": 217, "mode": "fixed"}, {"speed": 2.0, "beta": 0.64, "trail": 8.278, "pred": 10.319, "flicker": 211, "mode": "fixed"}, {"speed": 2.0, "beta": 0.66, "trail": 8.989, "pred": 11.083, "flicker": 193, "mode": "fixed"}, {"speed": 2.0, "beta": 0.68, "trail": 9.989, "pred": 11.941, "flicker": 178, "mode": "fixed"}, {"speed": 2.0, "beta": 0.7, "trail": 11.0, "pred": 12.911, "flicker": 158, "mode": "fixed"}, {"speed": 2.0, "beta": 0.72, "trail": 12.289, "pred": 14.019, "flicker": 132, "mode": "fixed"}, {"speed": 2.0, "beta": 0.74, "trail": 13.711, "pred": 15.294, "flicker": 115, "mode": "fixed"}, {"speed": 2.0, "beta": 0.76, "trail": 15.0, "pred": 16.78, "flicker": 94, "mode": "fixed"}, {"speed": 2.0, "beta": 0.78, "trail": 16.289, "pred": 18.535, "flicker": 50, "mode": "fixed"}, {"speed": 2.0, "beta": 0.8, "trail": 18.3, "pred": 20.638, "flicker": 13, "mode": "fixed"}, {"speed": 2.0, "beta": 0.82, "trail": 21.022, "pred": 23.206, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.84, "trail": 24.3, "pred": 26.413, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.86, "trail": 27.867, "pred": 30.534, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.88, "trail": 33.089, "pred": 36.025, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.9, "trail": 39.422, "pred": 43.709, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.92, "trail": 49.056, "pred": 55.23, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.94, "trail": 63.6, "pred": 74.427, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.96, "trail": 85.567, "pred": 112.811, "flicker": 0, "mode": "fixed"}, {"speed": 2.0, "beta": 0.98, "trail": 113.4, "pred": 227.948, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.0, "trail": 0.0, "pred": 0.0, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.02, "trail": 0.0, "pred": 3.532, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.04, "trail": 0.0, "pred": 4.292, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.06, "trail": 0.0, "pred": 4.911, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.08, "trail": 0.0, "pred": 5.47, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.1, "trail": 0.0, "pred": 6.0, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.12, "trail": 4.0, "pred": 6.516, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.14, "trail": 4.0, "pred": 7.027, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.16, "trail": 5.0, "pred": 7.539, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.18, "trail": 5.0, "pred": 8.057, "flicker": 163, "mode": "fixed"}, {"speed": 6.0, "beta": 0.2, "trail": 5.0, "pred": 8.584, "flicker": 203, "mode": "fixed"}, {"speed": 6.0, "beta": 0.22, "trail": 6.0, "pred": 9.124, "flicker": 203, "mode": "fixed"}, {"speed": 6.0, "beta": 0.24, "trail": 6.0, "pred": 9.681, "flicker": 203, "mode": "fixed"}, {"speed": 6.0, "beta": 0.26, "trail": 6.0, "pred": 10.256, "flicker": 222, "mode": "fixed"}, {"speed": 6.0, "beta": 0.28, "trail": 6.0, "pred": 10.853, "flicker": 222, "mode": "fixed"}, {"speed": 6.0, "beta": 0.3, "trail": 6.0, "pred": 11.475, "flicker": 231, "mode": "fixed"}, {"speed": 6.0, "beta": 0.32, "trail": 10.011, "pred": 12.125, "flicker": 238, "mode": "fixed"}, {"speed": 6.0, "beta": 0.34, "trail": 10.011, "pred": 12.806, "flicker": 244, "mode": "fixed"}, {"speed": 6.0, "beta": 0.36, "trail": 11.011, "pred": 13.523, "flicker": 243, "mode": "fixed"}, {"speed": 6.0, "beta": 0.38, "trail": 11.011, "pred": 14.278, "flicker": 238, "mode": "fixed"}, {"speed": 6.0, "beta": 0.4, "trail": 11.011, "pred": 15.078, "flicker": 231, "mode": "fixed"}, {"speed": 6.0, "beta": 0.42, "trail": 12.011, "pred": 15.926, "flicker": 231, "mode": "fixed"}, {"speed": 6.0, "beta": 0.44, "trail": 12.011, "pred": 16.828, "flicker": 231, "mode": "fixed"}, {"speed": 6.0, "beta": 0.46, "trail": 12.011, "pred": 17.791, "flicker": 229, "mode": "fixed"}, {"speed": 6.0, "beta": 0.48, "trail": 16.011, "pred": 18.823, "flicker": 227, "mode": "fixed"}, {"speed": 6.0, "beta": 0.5, "trail": 17.011, "pred": 19.932, "flicker": 225, "mode": "fixed"}, {"speed": 6.0, "beta": 0.52, "trail": 17.011, "pred": 21.127, "flicker": 224, "mode": "fixed"}, {"speed": 6.0, "beta": 0.54, "trail": 18.011, "pred": 22.421, "flicker": 221, "mode": "fixed"}, {"speed": 6.0, "beta": 0.56, "trail": 18.011, "pred": 23.827, "flicker": 219, "mode": "fixed"}, {"speed": 6.0, "beta": 0.58, "trail": 22.0, "pred": 25.362, "flicker": 219, "mode": "fixed"}, {"speed": 6.0, "beta": 0.6, "trail": 23.0, "pred": 27.045, "flicker": 218, "mode": "fixed"}, {"speed": 6.0, "beta": 0.62, "trail": 24.0, "pred": 28.901, "flicker": 217, "mode": "fixed"}, {"speed": 6.0, "beta": 0.64, "trail": 27.044, "pred": 30.957, "flicker": 211, "mode": "fixed"}, {"speed": 6.0, "beta": 0.66, "trail": 28.989, "pred": 33.249, "flicker": 193, "mode": "fixed"}, {"speed": 6.0, "beta": 0.68, "trail": 29.989, "pred": 35.823, "flicker": 178, "mode": "fixed"}, {"speed": 6.0, "beta": 0.7, "trail": 34.0, "pred": 38.734, "flicker": 158, "mode": "fixed"}, {"speed": 6.0, "beta": 0.72, "trail": 35.2, "pred": 42.056, "flicker": 132, "mode": "fixed"}, {"speed": 6.0, "beta": 0.74, "trail": 40.0, "pred": 45.883, "flicker": 115, "mode": "fixed"}, {"speed": 6.0, "beta": 0.76, "trail": 42.0, "pred": 50.341, "flicker": 94, "mode": "fixed"}, {"speed": 6.0, "beta": 0.78, "trail": 47.0, "pred": 55.604, "flicker": 50, "mode": "fixed"}, {"speed": 6.0, "beta": 0.8, "trail": 51.0, "pred": 61.913, "flicker": 13, "mode": "fixed"}, {"speed": 6.0, "beta": 0.82, "trail": 54.711, "pred": 69.617, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.84, "trail": 60.767, "pred": 79.239, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.86, "trail": 69.056, "pred": 91.601, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.88, "trail": 77.222, "pred": 108.074, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.9, "trail": 87.911, "pred": 131.126, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.92, "trail": 96.989, "pred": 165.69, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.94, "trail": 109.0, "pred": 223.28, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.96, "trail": 118.689, "pred": 338.433, "flicker": 0, "mode": "fixed"}, {"speed": 6.0, "beta": 0.98, "trail": 46.456, "pred": 683.843, "flicker": 0, "mode": "fixed"}, {"speed": 0.25, "beta": 0.866, "trail": 3.067, "pred": 4.0, "flicker": 0, "mode": "adaptive"}, {"speed": 2.0, "beta": 0.316, "trail": 2.0, "pred": 4.0, "flicker": 0, "mode": "adaptive"}, {"speed": 6.0, "beta": 0.032, "trail": 0.0, "pred": 4.0, "flicker": 0, "mode": "adaptive"}];
+const SPEEDS = [0.25, 2, 6], LABELS = ["慢速 0.25 px/帧", "中速 2 px/帧", "快速 6 px/帧"];
+const BUDGET = 4, BMAX = {0.25: 0.866, 2: 0.316, 6: 0.032}, BSTAR = {0.25: 0.86, 2: 0.30, 6: 0.02};
+const W = 340, H = 210, M = {l: 44, r: 14, t: 12, b: 30};
+const PW = W - M.l - M.r, PH = H - M.t - M.b;
+const css = n => getComputedStyle(document.getElementById('root')).getPropertyValue(n).trim();
+const X = b => M.l + b * PW;
+const YT = v => M.t + PH - Math.min(v, 60) / 60 * PH;
+const YF = v => M.t + PH - Math.min(v, 250) / 250 * PH;
+
+function fixed(speed) { return ROWS.filter(r => r.speed === speed && r.mode === "fixed"); }
+function path(data, key, yf) {
+  return data.map((r, i) => (i ? "L" : "M") + X(r.beta).toFixed(1) + " " + yf(r[key]).toFixed(1)).join(" ");
+}
+function grid(g, yf, ticks) {
+  let s = "";
+  for (const t of ticks) {
+    const y = yf(t);
+    s += `<line class="gridline" x1="${M.l}" x2="${W-M.r}" y1="${y}" y2="${y}"/>`;
+    s += `<text class="axis-label" x="${M.l-6}" y="${y+3.5}" text-anchor="end">${t}</text>`;
+  }
+  for (let b = 0; b <= 1.0001; b += 0.25)
+    s += `<text class="axis-label" x="${X(b)}" y="${H-8}" text-anchor="middle">${b.toFixed(2)}</text>`;
+  s += `<line class="axisline" x1="${M.l}" x2="${W-M.r}" y1="${M.t+PH}" y2="${M.t+PH}"/>`;
+  s += `<line class="axisline" x1="${M.l}" x2="${M.l}" y1="${M.t}" y2="${M.t+PH}"/>`;
+  g.innerHTML += s;
+}
+function panel(speed, label, row) {
+  const d = fixed(speed), star = BSTAR[speed], bmax = BMAX[speed];
+  const conflict = speed > 0.25;
+  const el = document.createElement("div");
+  el.className = "panel";
+  el.innerHTML = `<h3><span>${label} · ${row === 0 ? "拖尾长度" : "闪烁事件"}</span>
+      <span class="badge ${conflict && row === 0 ? "bad" : "ok"}">${conflict && row === 0 ? "定权冲突" : "可达标"}</span></h3>
+    <svg viewBox="0 0 ${W} ${H}" data-speed="${speed}" data-row="${row}"></svg>`;
+  const svg = el.querySelector("svg");
+  if (row === 0) {
+    grid(svg, YT, [0, 15, 30, 45, 60]);
+    svg.innerHTML += `<line class="limitline" x1="${M.l}" x2="${W-M.r}" y1="${YT(BUDGET)}" y2="${YT(BUDGET)}"/>
+      <text class="axis-label" x="${W-M.r-4}" y="${YT(BUDGET)-4}" text-anchor="end" fill="${css('--limit')}">预算 4px</text>
+      <line class="pickline" x1="${X(star)}" x2="${X(star)}" y1="${M.t}" y2="${M.t+PH}"/>
+      <path class="series s1" d="${path(d, "trail", YT)}"/>
+      <path class="series s2" d="${path(d, "pred", YT)}"/>
+      <circle class="dot" r="4.5" fill="${css('--pick')}" cx="${X(star)}" cy="${YT(d.find(r=>r.beta===star).trail)}"/>`;
+  } else {
+    grid(svg, YF, [0, 60, 120, 180, 240]);
+    svg.innerHTML += `<line class="pickline" x1="${X(star)}" x2="${X(star)}" y1="${M.t}" y2="${M.t+PH}"/>
+      <path class="series s3" d="${path(d, "flicker", YF)}"/>
+      <circle class="dot" r="4.5" fill="${css('--pick')}" cx="${X(star)}" cy="${YF(d.find(r=>r.beta===star).flicker)}"/>`;
+  }
+  svg.innerHTML += `<text class="axis-label" x="${M.l+PW/2}" y="${H-0}" text-anchor="middle">历史权重 β</text>`;
+  if (row === 0) svg.innerHTML += `<text class="axis-label" transform="rotate(-90 12 ${M.t+PH/2})" x="12" y="${M.t+PH/2}" text-anchor="middle">px</text>`;
+  return el;
+}
+const wrap = document.getElementById("panels");
+for (let row = 0; row < 2; row++)
+  SPEEDS.forEach((v, i) => wrap.appendChild(panel(v, LABELS[i], row)));
+
+const tip = document.getElementById("tip");
+document.querySelectorAll("svg").forEach(svg => {
+  const speed = +svg.dataset.speed, row = +svg.dataset.row, d = fixed(speed);
+  svg.addEventListener("mousemove", e => {
+    const rect = svg.getBoundingClientRect();
+    const b = Math.max(0, Math.min(0.98, ((e.clientX - rect.left) / rect.width * W - M.l) / PW));
+    const r = d.reduce((a, c) => Math.abs(c.beta - b) < Math.abs(a.beta - b) ? c : a);
+    tip.style.display = "block";
+    tip.style.left = (e.clientX + 14) + "px";
+    tip.style.top = (e.clientY + 14) + "px";
+    tip.innerHTML = `<b>v=${speed} px/帧 · β=${r.beta.toFixed(2)}</b>
+      <i>拖尾实测</i> ${r.trail.toFixed(2)} px<br>
+      <i>解析预测</i> ${r.pred.toFixed(2)} px<br>
+      <i>闪烁事件</i> ${r.flicker} 次 / 300 帧`;
+  });
+  svg.addEventListener("mouseleave", () => tip.style.display = "none");
+});
+
+const adapt = ROWS.filter(r => r.mode === "adaptive");
+const tb = document.querySelector("#tbl tbody");
+for (const v of SPEEDS) {
+  const fx = fixed(v).find(r => r.beta === BSTAR[v]);
+  const ad = adapt.find(r => r.speed === v);
+  tb.insertAdjacentHTML("beforeend", `<tr>
+    <td>${v}</td><td>定权 β*=${BSTAR[v]}</td><td>${BSTAR[v].toFixed(2)}</td>
+    <td>${BMAX[v].toFixed(3)}</td><td>${fx.trail.toFixed(2)}</td><td>4.0</td>
+    <td>${fx.flicker}</td>
+    <td class="${fx.flicker ? "note" : ""}">${fx.flicker ? "拖尾达标，闪烁让步（实测 " + fx.flicker + " 次）" : "两项达标"}</td></tr>`);
+  tb.insertAdjacentHTML("beforeend", `<tr>
+    <td>${v}</td><td>运动自适应</td><td>${ad.beta.toFixed(3)}</td>
+    <td>${BMAX[v].toFixed(3)}</td><td>${ad.trail.toFixed(2)}</td><td>4.0</td>
+    <td>${ad.flicker}</td><td>两项达标（静止 β=0.98）</td></tr>`);
+}
+document.getElementById("themeBtn").onclick = () => {
+  const root = document.documentElement;
+  root.dataset.theme = (root.dataset.theme ||
+    (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark" ? "light" : "dark";
+};
+</script>
+</body>
+</html>
