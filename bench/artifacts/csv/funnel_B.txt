@@ -1,0 +1,6 @@
+funnel ref_d vs fast_k0 (elev=30.0 r=2 mode=0), N=614400
+L1 bias values differ : 614400 (100.00000%)  maxabs=2.391e-05 maxrel=2.590e-02
+L2 raw tap flips      : 0 (0.00000%)  [no bias applied]
+L3 biased tap flips   : 81 (0.01318%)
+L4 PCF coverage diffs : 708 (0.11523%), >1 LSB: 708
+L5 final pixels diff  : 708 (0.11523%), >1 LSB: 708 (0.11523%)

@@ -1,0 +1,8 @@
+scene: elev=30.0 deg radius=2 mapmode=0  A=ref_d B=fast_k0
+pixels=614400 exact=613692 (99.8848%)  gt1LSB=708 (0.11523%)  maxdiff=21 meanabs=0.01530
+time ms:                S1map    S2bias    S3pcf   S4shade    total
+  ref_d             3.8711   15.6848   16.2453    1.3205   37.1217
+  fast_k0           3.8542    7.9417   16.2680    1.3274   29.3912
+delta B-A ms             -0.0170   -7.7431    0.0227    0.0069   -7.7305
+relative total delta: -20.82%  (bias stage delta: -49.37%)
+CSV,ref_d,fast_k0,99.8848,0.11523,21,3.8711,15.6848,16.2453,1.3205,37.1217,3.8542,7.9417,16.2680,1.3274,29.3912

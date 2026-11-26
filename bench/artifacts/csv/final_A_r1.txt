@@ -1,0 +1,8 @@
+scene: elev=30.0 deg radius=1 mapmode=0  A=ref_d B=nat_f
+pixels=614400 exact=614400 (100.0000%)  gt1LSB=0 (0.00000%)  maxdiff=0 meanabs=0.00000
+time ms:                S1map    S2bias    S3pcf   S4shade    total
+  ref_d             3.8031   15.4899   10.9494    1.3022   31.5446
+  nat_f             3.8292    7.6748   10.8259    1.3126   23.6425
+delta B-A ms              0.0261   -7.8150   -0.1235    0.0104   -7.9021
+relative total delta: -25.05%  (bias stage delta: -50.45%)
+CSV,ref_d,nat_f,100.0000,0.00000,0,3.8031,15.4899,10.9494,1.3022,31.5446,3.8292,7.6748,10.8259,1.3126,23.6425

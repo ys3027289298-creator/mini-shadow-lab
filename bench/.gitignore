@@ -1,0 +1,6 @@
+# build artifacts
+/bench
+/diag
+/margin
+/unit_trigger
+*.o

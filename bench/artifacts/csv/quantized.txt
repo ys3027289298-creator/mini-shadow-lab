@@ -1,0 +1,2 @@
+pixels=614400 exact=614400 (100.0000%)  gt1LSB=0 (0.00000%)  maxdiff=0 meanabs=0.00000
+pixels=614400 exact=614400 (100.0000%)  gt1LSB=0 (0.00000%)  maxdiff=0 meanabs=0.00000

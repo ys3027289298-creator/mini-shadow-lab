@@ -1,0 +1,6 @@
+funnel ref_d vs nat_f (elev=30.0 r=2 mode=0), N=614400
+L1 bias values differ : 104195 (16.95882%)  maxabs=2.328e-10 maxrel=1.940e-07
+L2 raw tap flips      : 0 (0.00000%)  [no bias applied]
+L3 biased tap flips   : 0 (0.00000%)
+L4 PCF coverage diffs : 0 (0.00000%), >1 LSB: 0
+L5 final pixels diff  : 0 (0.00000%), >1 LSB: 0 (0.00000%)

@@ -1,0 +1,23 @@
+Experiment 1: margin band (elev=30 r=2), taps=15360000
+max |biasA-biasB| = 2.391e-05
+  |margin| <=1e-9  :         10 ( 0.0001%)
+  |margin| 1e-8    :          0 ( 0.0000%)
+  |margin| 1e-7    :         12 ( 0.0001%)
+  |margin| 1e-6    :        210 ( 0.0014%)
+  |margin| 1e-5    :       2402 ( 0.0156%)
+  |margin| 1e-4    :      14875 ( 0.0968%)
+  |margin| 1e-3    :    1778894 (11.5813%)
+  |margin| 1e-2    :    6391554 (41.6117%)
+  |margin| >1e-2   :    7172043 (46.6930%)
+taps flipped: 2323 (0.01512%); flips with |margin| <= bias-delta band: 2323/2323
+
+Experiment 2: injected bias = biasA + G*(biasB-biasA)
+G,amplified_eps,flips,flip_pct,gt1lsb_pixels_pct
+0,0.000e+00,0,0.00000,0.00000
+1,2.391e-05,2323,0.01512,0.11523
+10,2.391e-04,13490,0.08783,0.95020
+100,2.391e-03,71753,0.46714,2.76595
+1000,2.391e-02,571675,3.72184,6.15869
+10000,2.391e-01,1335850,8.69694,11.15332
+100000,2.391e+00,1344734,8.75478,11.15609
+direct A-vs-B tap flips: 2323 (0.01512% of taps)
