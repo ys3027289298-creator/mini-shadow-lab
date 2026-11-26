@@ -8,7 +8,7 @@ tmp=$(mktemp -d)
 cp -r "$SRC/." "$tmp/"
 cd "$tmp" || exit 1
 rm -f _b.sh
-for n in shadowmap cascade pcf; do find . -type f -name "$n" -delete; done
+for n in shadowmap cascade pcf bake_realtime; do find . -type f -name "$n" -delete; done
 
 git init -q -b main
 git -c user.email=s@l -c user.name=s add -A
