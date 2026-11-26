@@ -27,13 +27,43 @@ static int pcf(const DepthMap* m, int x, int y, float frag, float bias, int radi
     return (lit * 255) / total;
 }
 
-/* penumbra width in shadow-map texels for a given blocker distance */
+/*
+ * Penumbra width in shadow-map texels.
+ *
+ * Let a be the light-to-blocker distance, D the light-to-receiver distance,
+ * and b = D - a the blocker-to-receiver gap. Similar triangles give
+ *
+ *     P_world = light_size * b / a
+ *             = light_size * b / (D - b).
+ *
+ * The handbook approximation uses / D instead of / (D - k*b) with k = 1.
+ * k is an empirical calibration coefficient; ideal geometric optics gives
+ * k = 1. Small b / D makes D - k*b ~= D.
+ */
+static float penumbra_texels_cal(float blocker_depth, float receiver_depth,
+                                 float light_size, float texel_world,
+                                 float projection_scale, float k) {
+    if (texel_world <= 0.0f || projection_scale <= 0.0f) return -1.0f;
+    float gap = receiver_depth - blocker_depth;
+    if (gap <= 0.0f) return 0.0f;
+    float denominator = receiver_depth - k * gap;
+    if (denominator <= 0.0f) return -1.0f;
+    return light_size * gap / denominator * projection_scale / texel_world;
+}
+
 static float penumbra_texels(float blocker_depth, float receiver_depth,
                              float light_size, float texel_world, float projection_scale) {
-    if (texel_world <= 0.0f || projection_scale <= 0.0f) return -1.0f;
-    float d = receiver_depth - blocker_depth;
-    if (d < 0.0f) d = 0.0f;
-    return (light_size * d / receiver_depth) * projection_scale / texel_world;
+    return penumbra_texels_cal(blocker_depth, receiver_depth, light_size,
+                               texel_world, projection_scale, 1.0f);
+}
+
+/* Invert P = light_size * gap / (receiver_depth - k * gap). */
+static float penumbra_fit_k(float gap, float receiver_depth,
+                            float light_size, float measured_world) {
+    if (gap <= 0.0f || light_size <= 0.0f || measured_world <= 0.0f) {
+        return NAN;
+    }
+    return receiver_depth / gap - light_size / measured_world;
 }
 
 static int failures = 0;
@@ -66,6 +96,24 @@ int main(void) {
     check("penumbra_zero_at_contact", fabsf(penumbra_texels(5.0f, 5.0f, 1.0f, 0.1f, 1.0f)) < 1e-6f);
     check("penumbra_grows", penumbra_texels(1.0f, 10.0f, 1.0f, 0.1f, 1.0f) >
                             penumbra_texels(9.0f, 10.0f, 1.0f, 0.1f, 1.0f));
+
+    /* Similar-triangle values for (blocker, receiver) = (1,2), (.1,10), (9,10). */
+    check("penumbra_similar_triangles",
+          fabsf(penumbra_texels(1.0f, 2.0f, 1.0f, 0.1f, 1.0f) - 10.0f) < 1e-4f &&
+          fabsf(penumbra_texels(0.1f, 10.0f, 1.0f, 0.1f, 1.0f) - 990.0f) < 1e-2f &&
+          fabsf(penumbra_texels(9.0f, 10.0f, 1.0f, 0.1f, 1.0f) - 1.111111f) < 1e-4f);
+
+    /* When the supplied middle column is the gap b, blocker = D - b. */
+    check("penumbra_gap_interpretation",
+          fabsf(penumbra_texels(1.0f, 2.0f, 1.0f, 0.1f, 1.0f) - 10.0f) < 1e-4f &&
+          fabsf(penumbra_texels(9.9f, 10.0f, 1.0f, 0.1f, 1.0f) - 0.1010101f) < 1e-5f &&
+          fabsf(penumbra_texels(1.0f, 10.0f, 1.0f, 0.1f, 1.0f) - 90.0f) < 1e-3f);
+
+    /* Ideal geometric measurements invert to k = 1 for all three gap cases. */
+    check("penumbra_fit_ideal_k",
+          fabsf(penumbra_fit_k(1.0f, 2.0f, 1.0f, 1.0f) - 1.0f) < 1e-6f &&
+          fabsf(penumbra_fit_k(0.1f, 10.0f, 1.0f, 0.1f / 9.9f) - 1.0f) < 1e-5f &&
+          fabsf(penumbra_fit_k(9.0f, 10.0f, 1.0f, 9.0f) - 1.0f) < 1e-6f);
 
     check("bad_radius", pcf(&m, 0, 0, 0.5f, 0.0f, 9) == -1);
     check("bad_map", pcf(&h, 0, 0, 0.5f, 0.0f, 1) > -1);
