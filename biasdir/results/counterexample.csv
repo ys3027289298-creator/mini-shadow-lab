@@ -1,0 +1,7 @@
+angle_deg,ndotl,mode,d_texel,depth_bias_texel,proj_formula,black_pixels,black_frac_pct
+0,1.0000,light_const,10.00,10.000,b=d,0,0.000
+0,1.0000,normal_const,10.00,10.000,b=d*cos(theta),0,0.000
+45,0.7071,light_const,10.00,10.000,b=d,0,0.000
+45,0.7071,normal_const,10.00,7.071,b=d*cos(theta),0,0.000
+80,0.1736,light_const,10.00,10.000,b=d,0,0.000
+80,0.1736,normal_const,10.00,1.736,b=d*cos(theta),24,1.172

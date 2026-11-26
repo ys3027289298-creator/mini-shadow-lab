@@ -32,7 +32,11 @@ static V4 apply(const Mat4* m, V4 v) {
     return o;
 }
 
-/* depth bias grows with slope to fight acne */
+/* depth bias grows with slope to fight acne.
+ * The subtraction happens on the light-space depth axis, i.e. the offset is
+ * defined along the light direction (projection b = d). A normal-directed
+ * offset would project to only d*cos(theta) and vanish on grazing faces;
+ * see ../biasdir for the measured comparison and the 1-texel gate. */
 static float depth_bias(float ndotl, float base, float slope) {
     if (ndotl < 0.0f) ndotl = 0.0f;
     if (ndotl > 1.0f) ndotl = 1.0f;

@@ -1,0 +1,5 @@
+# build outputs (binaries are rebuilt via `make`; _p.sh also strips them)
+shadowmap/shadowmap
+cascade/cascade
+pcf/pcf
+biasdir/biasdir
